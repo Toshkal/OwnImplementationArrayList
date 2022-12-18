@@ -1,5 +1,7 @@
 import java.util.Comparator;
-
+/**
+ *Этот интерфейс содержит основные методы, для реализации моего Arraylist
+ */
 public interface BasicMethods <E> extends Iterable<E> {
     boolean addInArray(E e);
     boolean addInArray(int index, E e);
