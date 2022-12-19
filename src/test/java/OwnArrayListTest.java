@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,7 +35,7 @@ class OwnArrayListTest {
         System.out.println(objectList);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void addInArray() {
         integerList.addInArray(555);
         System.out.println(integerList);
@@ -43,14 +45,14 @@ class OwnArrayListTest {
         System.out.println(objectList);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void size() {
         assertEquals(1, integerList.size());
         assertEquals(5, objectList.size());
         assertEquals(10, stringList.size());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testAddInArray() {
         integerList.addInArray(0,777);
         System.out.println(integerList);
@@ -88,25 +90,30 @@ class OwnArrayListTest {
         }
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @Timeout(8)
     void sort() {
-        System.out.println(integerList);
-        integerList.sort();
+        for (int i = 0; i < 100_000; i++) {
+            integerList.addInArray((int)(Math.random()*1_000_000));
+            }
+            integerList.sort(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return o1-o2;
+                }
+        });
+            System.out.println(integerList);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void lengthArray() {
+        assertEquals(4,4);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void updateArray() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void iterator() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void testToString() {
+        System.out.println(objectList);
+        objectList.updateArray(2,'V');
+        System.out.println(objectList);
     }
 }
