@@ -109,7 +109,7 @@ public class OwnArrayList<E> implements BasicMethods<E> {
      * индексы).
      *
      * @param index индекс элемента, подлежащего удалению
-     * @return
+     * @return возврат нового значения по тому же индексу
      */
     @Override
     public Object deleteObject(int index) {
