@@ -107,10 +107,12 @@ public class OwnArrayList<E> implements BasicMethods<E> {
      * Удаляет элемент в указанной позиции в этом списке.
      * Сдвигает любые последующие элементы влево (вычитает один из их
      * индексы).
+     *
      * @param index индекс элемента, подлежащего удалению
+     * @return
      */
     @Override
-    public void deleteObject(int index) {
+    public Object deleteObject(int index) {
         try {
             examinationIndex(index); // проверка индекса
             for (int i = index; i < size-1; ++i)
@@ -120,6 +122,7 @@ public class OwnArrayList<E> implements BasicMethods<E> {
         } catch (ClassCastException error) {
             error.printStackTrace();
         }
+        return array[index];
     }
 
     /**
