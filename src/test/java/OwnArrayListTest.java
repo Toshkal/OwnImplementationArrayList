@@ -1,16 +1,16 @@
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class OwnArrayListTest {
-    private static OwnArrayList integerList;
-    private static OwnArrayList stringList;
-    private static OwnArrayList objectList;
+    private static OwnArrayList<Integer> integerList;
+    private static OwnArrayList<String> stringList;
+    private static OwnArrayList<Object> objectList;
 
     @BeforeAll
     public static void beforeAll() {
@@ -47,9 +47,9 @@ class OwnArrayListTest {
 
     @Test
     public void size() {
-        assertEquals(1, integerList.size());
-        assertEquals(5, objectList.size());
-        assertEquals(10, stringList.size());
+        assertEquals(3, integerList.size());
+        assertEquals(6, objectList.size());
+        assertEquals(12, stringList.size());
     }
 
     @Test
@@ -67,7 +67,7 @@ class OwnArrayListTest {
         System.out.println(objectList);
         Object expected = 'D';
         Object actual = objectList.deleteObject(2);
-        assertEquals(4, objectList.size());
+        assertEquals(5, objectList.size());
         assertEquals(expected, actual);
 
         assertEquals('A', objectList.getObject(0));
@@ -85,9 +85,8 @@ class OwnArrayListTest {
 
     @Test
     void getObject() {
-        for (int i = 0; i < integerList.size(); i++) {
-            assertEquals(i, integerList.getObject(i));
-        }
+            assertEquals(0, integerList.getObject(0));
+
     }
 
     @Test
